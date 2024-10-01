@@ -30,8 +30,9 @@
     <button id="b1"> button 1 </button>
     <button id="b2"> button 2 </button>
     <button id="b3"> button 3 </button>
-    <p><small>By Logan Cookson :)</small></p>
+    <p><small>By Logan Cookson :) - <span id="v"></span></small></p>
     <script>
+      let version="1.0.1";
       let q = "Question goes here";
       let wrong1 = "Wrong Answer 1";
       let wrong2 = "Wrong Answer 2";
@@ -59,6 +60,8 @@
       const b1 = document.getElementById("b1");
       const b2 = document.getElementById("b2");
       const b3 = document.getElementById("b3");
+      const v = document.getElementById("v");
+      v.innerHTML = version;
 
       let qarr = [wrong1, wrong2, correct];
       shuffle(qarr);
@@ -71,21 +74,21 @@
 
       b1.addEventListener("click", function() {
         if (b1.innerHTML == correct) {
-            b1.style.backgroundColor = "#11dd11";
+            b1.style.backgroundColor = "#00bb00";
         } else {
             b1.style.backgroundColor = "#ff1111";
         }
       })
         b2.addEventListener("click", function() {
         if (b2.innerHTML == correct) {
-            b2.style.backgroundColor = "#11dd11";
+            b2.style.backgroundColor = "#00bb00";
         } else {
             b2.style.backgroundColor = "#ff1111";
         }
       })
         b3.addEventListener("click", function() {
         if (b3.innerHTML == correct) {
-            b3.style.backgroundColor = "#11dd11";
+            b3.style.backgroundColor = "#00bb00";
         } else {
             b3.style.backgroundColor = "#ff1111";
         }
