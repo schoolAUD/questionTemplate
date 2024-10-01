@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<head>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&display=swap');
+      body {
+        font-family: "Afacad Flux", "Comic Sans MS";
+        color: white;
+        background: rgb(2,32,162);
+        background: linear-gradient(135deg, rgba(2,32,162,1) 0%, rgba(0,155,255,1) 49%, rgba(0,254,255,1) 100%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 5px;
+        text-align: center;
+      }
+      button {
+        font-family: "Afacad Flux", "Comic Sans MS";
+        color: white;
+        background-color: #222222;
+        border: none;
+        border-radius: 5px;
+      }
+    </style>
+</head>
+<body>
+    <h1> Which is the correct option for this question? </h1>
+    <h2 id="q"> [question] </h2>
+    <button id="b1"> button 1 </button>
+    <button id="b2"> button 2 </button>
+    <button id="b3"> button 3 </button>
+    <script>
+      let q = "Question goes here";
+      let wrong1 = "Wrong Answer 1";
+      let wrong2 = "Wrong Answer 2";
+      let correct = "Correct Answer";
+
+      function shuffle(array) {
+          let currentIndex = array.length;
+
+          // While there remain elements to shuffle...
+          while (currentIndex != 0) {
+
+          // Pick a remaining element...
+          let randomIndex = Math.floor(Math.random() * currentIndex);
+          currentIndex--;
+
+          // And swap it with the current element.
+          [array[currentIndex], array[randomIndex]] = [
+            array[randomIndex], array[currentIndex]];
+        }
+      }
+
+      
+      document.addEventListener("DOMContentLoaded", function() {
+      const qu = document.getElementById("q");
+      const b1 = document.getElementById("b1");
+      const b2 = document.getElementById("b2");
+      const b3 = document.getElementById("b3");
+
+      let qarr = [wrong1, wrong2, correct];
+      shuffle(qarr);
+
+      qu.innerHTML = q;
+
+      b1.innerHTML = qarr[0];
+      b2.innerHTML = qarr[1];
+      b3.innerHTML = qarr[2];
+
+      b1.addEventListener("click", function() {
+        if (b1.innerHTML == correct) {
+            b1.style.backgroundColor = "#11dd11";
+        } else {
+            b1.style.backgroundColor = "#ff1111";
+        }
+      })
+        b2.addEventListener("click", function() {
+        if (b2.innerHTML == correct) {
+            b2.style.backgroundColor = "#11dd11";
+        } else {
+            b2.style.backgroundColor = "#ff1111";
+        }
+      })
+        b3.addEventListener("click", function() {
+        if (b3.innerHTML == correct) {
+            b3.style.backgroundColor = "#11dd11";
+        } else {
+            b3.style.backgroundColor = "#ff1111";
+        }
+      })
+      })
+    </script>
+</body>
