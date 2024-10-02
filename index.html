@@ -32,11 +32,28 @@
     <button id="b3"> button 3 </button>
     <p><small>By Logan Cookson :) - <span id="v"></span></small></p>
     <script>
-      let version="1.0.1";
+      let version="1.1";
       let q = "Question goes here";
       let wrong1 = "Wrong Answer 1";
       let wrong2 = "Wrong Answer 2";
       let correct = "Correct Answer";
+
+      function checkActivation() {
+        const http = new XMLHttpRequest()
+        http.open("GET", "https://raw.githubusercontent.com/schoolAUD/questionTemplate/refs/heads/main/allowList.txt")
+        http.onload = (e) => {
+            var response = http.responseText
+            console.log(response)
+            console.warn(window.location.origin)
+            console.log(response.includes(window.location.origin))
+            if (!response.includes(window.location.origin) || !window.location.href.includes("sites.google.com/d/")) {
+                document.body.innerHTML = "<p> This hasn't been allowed to run here. Sorry! </p>"
+            }
+        }
+        http.send(null)
+      }
+
+    checkActivation();
 
       function shuffle(array) {
           let currentIndex = array.length;
